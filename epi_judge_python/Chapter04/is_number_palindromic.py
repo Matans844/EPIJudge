@@ -1,9 +1,9 @@
 from test_framework import generic_test
+from Concepts.chapter04 import reverse
 
 
 def is_palindrome_number(x: int) -> bool:
-    # TODO - you fill in here.
-    return True
+    return x >= 0 and reverse(x) == x
 
 
 if __name__ == '__main__':

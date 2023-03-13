@@ -3,21 +3,42 @@ from test_framework.test_failure import TestFailure
 
 
 class Queue:
+    SCALE_FACTOR = 2
+
     def __init__(self, capacity: int) -> None:
-        # TODO - you fill in here.
+        self._entries = [0] * capacity
+        self._head = self._tail = self._num_queue_elements = 0
+
         return
 
     def enqueue(self, x: int) -> None:
-        # TODO - you fill in here.
+        # Check if resize is needed
+        if self._num_queue_elements == len(self._entries):
+            # Flattening
+            self._entries = self._entries[self._head:] + self._entries[:self._head]
+            self._head, self._tail = 0, self._num_queue_elements
+            self._entries += [0] * (len(self._entries) * (Queue.SCALE_FACTOR - 1))
+
+        # Adding element (From the right)
+        # access_index = self._tail % len(self._entries)
+        # see: https://www.snellman.net/blog/archive/2016-12-13-ring-buffers/
+        self._entries[self._tail] = x
+        self._tail = (self._tail + 1) % len(self._entries)
+        self._num_queue_elements += 1
+
         return
 
     def dequeue(self) -> int:
-        # TODO - you fill in here.
-        return 0
+        if not self._num_queue_elements:
+            raise IndexError('empty queue')
+        self._num_queue_elements -= 1
+        target = self._entries[self._head]
+        self._head = (self._head + 1) % len(self._entries)
+
+        return target
 
     def size(self) -> int:
-        # TODO - you fill in here.
-        return 0
+        return self._num_queue_elements
 
 
 def queue_tester(ops):
