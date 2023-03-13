@@ -29,8 +29,6 @@ def intersect_rectangle(r1: Rect, r2: Rect) -> Rect:
                 min(r1.y + r1.height, r2.y + r2.height) - max(r1.y, r2.y))
 
 
-
-
 def intersect_rectangle_wrapper(r1, r2):
     return intersect_rectangle(Rect(*r1), Rect(*r2))
 
