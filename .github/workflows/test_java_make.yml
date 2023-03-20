@@ -4,7 +4,7 @@ on:
   push:
     paths-ignore:
     - 'epi_judge_cpp*/**'
-    - 'epi_judge_python*/**'
+    - 'problems*/**'
     - 'html/**'
     - '.gitignore'
     - 'index.html'
@@ -13,7 +13,7 @@ on:
   pull_request:
     paths-ignore:
     - 'epi_judge_cpp*/**'
-    - 'epi_judge_python*/**'
+    - 'problems*/**'
     - 'html/**'
     - '.gitignore'
     - 'index.html'
@@ -38,8 +38,8 @@ jobs:
             
     steps:
     - uses: actions/checkout@v1
-    - name: Set up Python 3.7
-      uses: actions/setup-python@v1
+    - name: Set up Languages 3.7
+      uses: actions/setup-src@v1
       with:
         python-version: 3.7
     - name: Set up Java 11
@@ -54,7 +54,7 @@ jobs:
     - name: Compile
       run: make -C ${{ matrix.folder }} all
     - name: Test 
-      run: python epijudge_ci_test_tool.py java ${{ matrix.mode }} .
+      run: src epijudge_ci_test_tool.py java ${{ matrix.mode }} .
 
   full_test:
     name: Full Test
@@ -73,8 +73,8 @@ jobs:
             
     steps:
     - uses: actions/checkout@v1
-    - name: Set up Python 3.7
-      uses: actions/setup-python@v1
+    - name: Set up Languages 3.7
+      uses: actions/setup-src@v1
       with:
         python-version: 3.7
     - name: Set up Java 11
@@ -89,7 +89,7 @@ jobs:
     - name: Compile
       run: make -C ${{ matrix.folder }} all
     - name: Test 
-      run: python epijudge_ci_test_tool.py java ${{ matrix.mode }} .  
+      run: src epijudge_ci_test_tool.py java ${{ matrix.mode }} .
 
   dummy_job:
     name: Empty check

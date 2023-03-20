@@ -21,7 +21,7 @@ class TestMode(enum.Enum):
 class Language(enum.Enum):
     CPP = 'cpp'
     JAVA = 'java'
-    PYTHON = 'python'
+    PYTHON = 'src'
 
 
 def strip_ascii_codes(s: str) -> str:

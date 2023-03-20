@@ -15,7 +15,7 @@
  *         "passed": 0,
  *         "total": 10001
  *       },
- *       "Python: count_bits.py": {
+ *       "Languages: count_bits.py": {
  *         "passed": 0,
  *         "total": 10001
  *       }
@@ -33,7 +33,7 @@
  *     "progress": {
  *       "cpp": 0,
  *       "java": 7,
- *       "python": 13,
+ *       "src": 13,
  *       "total": 13
  *     }
  *     "problems": [
@@ -49,7 +49,7 @@
  *           "passed": 10000,
  *           "total": 10001
  *         },
- *         "python": {
+ *         "src": {
  *           "filename": count_bits.py",
  *           "passed": 10001,
  *           "total": 10001
@@ -80,7 +80,7 @@ function translateProblemMappings(data) {
             name: name,
             cpp: translateLanguageEntry('C++', 'epi_judge_cpp/', data),
             java: translateLanguageEntry('Java', 'epi_judge_java/epi/', data),
-            python: translateLanguageEntry('Python', 'epi_judge_python/', data)
+            python: translateLanguageEntry('Languages', 'problems/', data)
         };
         if (result.cpp || result.java || result.python) {
             return result;

@@ -196,7 +196,7 @@ const epi = new Vue({
             selected_chapter: null,
             all_langs: ALL_LANGUAGES,
             langs_enabled: {"cpp": true, "java": true, "python": true},
-            langs_displayname: {"cpp": "C++", "java": "Java", "python": "Python"}
+            langs_displayname: {"cpp": "C++", "java": "Java", "python": "Languages"}
         }
     },
     computed: {

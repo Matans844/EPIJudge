@@ -194,7 +194,7 @@ problem_mapping = {
                 "total": 204
             },
             "Python: dutch_national_flag.py": {
-                "passed": 0,
+                "passed": 204,
                 "total": 204
             }
         },
@@ -1888,7 +1888,7 @@ problem_mapping = {
                 "total": 13
             },
             "Python: a_b_sqrt2.py": {
-                "passed": 0,
+                "passed": 13,
                 "total": 13
             }
         },
