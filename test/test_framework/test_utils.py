@@ -20,13 +20,14 @@ def split_tsv_file(tsv_file):
 
 
 def get_default_test_data_dir_path():
-    max_search_depth = 4
+    max_search_depth = 6
 
     path = 'test_data'
     for _ in range(max_search_depth):
         if os.path.isdir(path):
             return path
         path = os.path.join(os.path.pardir, path)
+
 
     raise RuntimeError(
         'Can\'t find test data directory. Please start the program with "--test_data_dir <path>" command-line option'
